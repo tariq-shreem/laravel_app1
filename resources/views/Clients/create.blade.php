@@ -9,6 +9,6 @@
 <body>
 
 <form method="post" action="{{route('clients.store')}}">
-    @include('Clients.form')
+    @include('Clients.assets._form')
 </body>
 </html>

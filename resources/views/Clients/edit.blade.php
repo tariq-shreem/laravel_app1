@@ -10,7 +10,7 @@
 
 <form method="post" action="{{route('clients.update')}}">
     @method('PUT')
-    @extends('Clients.form')
+    @extends('Clients.assets._form')
 
     @section('inputs')
         <input type="hidden" value="{{ $client->id }}" name="client_id" />
