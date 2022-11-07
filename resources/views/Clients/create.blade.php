@@ -8,13 +8,7 @@
 </head>
 <body>
 
-    @extends('Clients.form')
-    @section('route') {{route('clients.store')}}  @endsection
-
-    @section('name_value'){{old('name') }}@endsection
-    @section('phone_value'){{old('phone') }}@endsection
-    @section('email_value'){{old('email') }}@endsection
-
-
+<form method="post" action="{{route('clients.store')}}">
+    @include('Clients.form')
 </body>
 </html>

@@ -8,18 +8,12 @@
 </head>
 <body>
 
-
+<form method="post" action="{{route('clients.update')}}">
+    @method('PUT')
     @extends('Clients.form')
-    @section('route') {{route('clients.update')}}  @endsection
-    @section('method') @method("put") @endsection
+
     @section('inputs')
         <input type="hidden" value="{{ $client->id }}" name="client_id" />
     @endsection
-    @section('name_value'){{$client->name}}@endsection
-    @section('phone_value'){{$client->phone}}@endsection
-    @section('email_value'){{$client->email}}@endsection
-
-
-
 </body>
 </html>
