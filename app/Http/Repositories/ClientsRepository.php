@@ -3,11 +3,13 @@
 namespace App\Http\Repositories;
 
 use App\Http\Interfaces\ClientsInterface;
+use App\Http\Traits\ClientsTrait;
 use App\Models\Client;
-use Illuminate\Support\Facades\Session;
 
 class ClientsRepository implements ClientsInterface
 {
+    use ClientsTrait;
+
     private $clientModel;
 
     public function __construct(Client $client)
@@ -62,11 +64,6 @@ class ClientsRepository implements ClientsInterface
         $this->clientModel::find($request->client_id)->delete();
         return $this->ClientRedireact("Client was Deleted");
 
-    }
-
-    private function ClientRedireact($msg){
-        Session::flash('msg',$msg);
-        return redirect(route('clients.index'));
     }
 
 }

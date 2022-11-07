@@ -185,6 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Unlimited\Repository\RepositoryServiceProvider::class,
 
         /*
          * Application Service Providers...
