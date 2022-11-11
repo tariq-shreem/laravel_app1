@@ -14,21 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group(['prefix'=>'clients','as'=>'clients.'],function(){
-    Route::get('/',[ClietnsController::class,'index'])
-    ->name('index');
-    Route::get('/create',[ClietnsController::class,'create'])
-    ->name('create');
-    Route::post('/store',[ClietnsController::class,'store'])
-    ->name('store');
-
-    Route::get('/edit/{id}',[ClietnsController::class,'edit'])
-    ->name('edit');
-    Route::put('/update',[ClietnsController::class,'update'])
-    ->name('update');
-
-    Route::delete('/store',[ClietnsController::class, 'delete'])
-    ->name('delete');
-
+    Route::get('/',[ClietnsController::class,'index'])->name('index');
+    Route::get('/create',[ClietnsController::class,'create'])->name('create');
+    Route::post('/store',[ClietnsController::class,'store'])->name('store');
+    Route::get('/edit/{id}',[ClietnsController::class,'edit'])->name('edit');
+    Route::put('/update',[ClietnsController::class,'update'])->name('update');
+    Route::delete('/delete',[ClietnsController::class, 'delete'])->name('delete');
 
 });
 

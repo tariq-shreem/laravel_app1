@@ -19,7 +19,7 @@ class ClientsRepository implements ClientsInterface
 
     public function index(){
 
-        $clients =$this->clientModel::get();
+        $clients =$this->clientModel::withCount('projects')->get();
 
         return view('Clients.index',compact('clients'));
     }
@@ -38,7 +38,6 @@ class ClientsRepository implements ClientsInterface
         ]);
 
         return $this->ClientRedireact("Client was Created");
-
     }
 
     public function edit($id){
@@ -55,15 +54,15 @@ class ClientsRepository implements ClientsInterface
             'phone'=>$request->phone,
             'email'=>$request->email,
         ]);
-        return $this->ClientRedireact("Client was Updated");
 
+        return $this->ClientRedireact("Client was Updated");
     }
 
     public function delete($request){
 
         $this->clientModel::find($request->client_id)->delete();
-        return $this->ClientRedireact("Client was Deleted");
 
+        return $this->ClientRedireact("Client was Deleted");
     }
 
 }

@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<h1>Clients Index</h1>
+
     @if(Session::has('msg'))
         {{ Session::get('msg') }}
     @endif
@@ -17,6 +19,7 @@
                 <td>name</td>
                 <td>phone</td>
                 <td>email</td>
+                <td>projects Count</td>
                 <td>delete</td>
                 <td>edit</td>
             </tr>
@@ -28,6 +31,7 @@
                     <td>{{ $client->name }}</td>
                     <td>{{ $client->phone }}</td>
                     <td>{{ $client->email }}</td>
+                    <td>{{ $client->projects_count }}</td>
                     <td><a href="{{ route('clients.edit',[$client->id]) }}">edit</a></td>
                     <td>
                         <form action="{{ route('clients.delete') }}"

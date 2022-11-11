@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-
+<h1>Create New Client</h1>
 <form method="post" action="{{route('clients.store')}}">
     @include('Clients.assets._form')
 </body>
