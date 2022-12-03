@@ -18,8 +18,8 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->name(),
-            'cost' => fake()->randomNumber(),
+            'name' =>  fake()->name(),
+            'cost' => fake()->numberBetween(1,10000),
             'client_id' => fake()->numberBetween(1, Client::count())
         ];
     }

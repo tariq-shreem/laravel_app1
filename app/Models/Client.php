@@ -17,7 +17,6 @@ class Client extends Model
             'name'=>'required|min:5|max:20',
             'phone'=>'required|min:11',
             'email'=>'required|email|max:20',
-
         ];
     }
 
@@ -25,5 +24,7 @@ class Client extends Model
     {
         return $this->hasMany(Project::class);
     }
+
+    protected $hidden = ['created_at', 'updated_at'];
 
 }

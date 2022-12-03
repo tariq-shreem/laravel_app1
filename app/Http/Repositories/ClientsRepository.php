@@ -2,26 +2,36 @@
 
 namespace App\Http\Repositories;
 
+use App\Http\ClientsHelper;
 use App\Http\Interfaces\ClientsInterface;
 use App\Http\Traits\ClientsTrait;
 use App\Models\Client;
+use App\Models\Project;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class ClientsRepository implements ClientsInterface
 {
     use ClientsTrait;
 
     private $clientModel;
+    public $clientsHelper;
 
-    public function __construct(Client $client)
+    public function __construct(Client $client, ClientsHelper $clientsHelper)
     {
         $this->clientModel = $client;
+        $this->clientsHelper = $clientsHelper;
     }
 
     public function index(){
 
-        $clients =$this->clientModel::withCount('projects')->get();
+       $clients =  $this->clientModel::withCount('projects')->get();
 
-        return view('Clients.index',compact('clients'));
+       $clients = $clients->filter(function($client){
+           return $client->projects_count == 0;
+       });
+
+       return view('Clients.index',compact('clients'));
     }
 
     public function create(){
